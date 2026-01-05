@@ -1,55 +1,71 @@
-# Rentry
+# CT-RoleAffixes
 
-https://rentry.org/noass_ext
+A minimal SillyTavern/CozyTavern extension for adding prefixes and suffixes to user and character messages in Chat Completion mode.
 
-# Installation
+## Features
 
-Extensions -> Install extension (top right) -> Insert link `https://gitgud.io/Monblant/noass`
+- **Messages Separator**: Choose how messages are separated (Double Newline, Newline, or Space)
+- **User Prefix/Suffix**: Add custom text before/after user messages
+- **Char Prefix/Suffix**: Add custom text before/after character messages
+- **Insertable Prefill**: Add prefill text that gets inserted at the end of the prompt and prepended to responses
 
-# Settings
+## Installation
 
-`Enable NoAss` - enables messages squashing.
+Extensions → Install extension (top right) → Insert link to this repository
 
-`Enable Insertable Prefill` - enables Insertable Prefill to be inserted at the prompt and at the beginning of a message.
+## Settings
 
-`Separate Chat History` - always places squashed Chat History in a separate message
+### Enable Role Affixes
 
-`Squash Role` - the role from which the squashed chat history will be sent. Default - Assistant.
+Enables the extension's message processing.
 
-`Stop String` - Provides three configurable variants for stopping generation. Each variant has its own settings:
-- `Variant Selector`: A dropdown to switch between the three stop string variants.
-- `Value`: The actual string or regex pattern to stop generation.
-- `Client-Only`: Toggles whether the stop string is detected on the client side.
-- `Regex`: Toggles whether the value should be treated as a regular expression (only works with Client-Only enabled).
+### Messages Separator
 
-`Response Max Symbols` - limits the maximum number of characters in a response. If exceeded, the response will be truncated to the last line break encountered.
+Characters used to separate messages when squashing chat history:
 
-`Messages Separator` - characters to be used to separate messages. The default is `Double newline`.
+- **Double Newline** (default): `\n\n`
+- **Newline**: `\n`
+- **Space**: ` `
 
-`Squashed History Separator` - Provides three configurable variants for post-processing squashed messages. Each variant contains its own settings for splitting the history and inserting prompts.
-- `Variant Selector`: A dropdown to switch between the three post-processing variants.
-- `Enable Squashed History Separator`: Enables or disables this entire post-processing block for the selected variant.
-- `Keep Separator`: Keeps the separator string in the message below after splitting.
-- `Regex Mode`: Treats the separator string as a regular expression.
-- `Separator String`: The string or regex pattern used to split the squashed history into multiple messages.
-- `Enable Inter-Split Prompt`: Enables the insertion of a custom prompt between the newly split messages.
-- `Prompt Role`: The role (System, User, Assistant) from which the inter-split prompt will be sent.
-- `Prompt Content`: The text content of the inter-split prompt.
+### User Prefix
 
-`User Prefix` - a string to be placed before the user message. The default is `**{{{user}}:** ` (with a space).
+Text placed before each user message. Use `\n` for newlines.
+Default: `**{{user}}:** `
 
-`User Suffix` - a string to be placed after the user message.
+### User Suffix
 
-`Char Prefix` - a string to be placed before the char message.
+Text placed after each user message. Use `\n` for newlines.
 
-`Char Suffix` - a string to be placed after the char message.
+### Char Prefix
 
-`Insertable Prefill` - a string to placed after the chat history.
+Text placed before each character message. Use `\n` for newlines.
 
-# Depth Prompts
+### Char Suffix
 
-In the extension, it is possible to insert prompts as separate messages in depth of squashed Chat History. To do this, add prefix `[NoAssDepth]` to the prompt's name and turn the prompt on in the Prompt Manager.
+Text placed after each character message. Use `\n` for newlines.
 
-NOTE 1: Don't use regular depth prompts and NoAss depth prompts at the same depth. This will result in undefined behavior.
+### Insertable Prefill
 
-NOTE 2: Don't create NoAss depth prompts with different roles at the same depth. They will take the role of the first of the prompts.
+When enabled, this text is:
+
+1. Added as an assistant message at the end of the prompt
+2. Prepended to the AI's response
+
+Useful for starting responses with specific formatting or characters.
+
+## Macro Support
+
+All prefix/suffix fields support SillyTavern macros including:
+
+- `{{user}}` - User's name
+- `{{char}}` - Character's name
+- `{{timestamp}}` - Message timestamp
+
+## Requirements
+
+- SillyTavern version 1.12 or higher
+- Chat Completion API (OpenAI-compatible endpoints)
+
+## Credits
+
+Based on the NoAss extension by Monblant. Simplified for CozyTavern with focus on affix functionality only.

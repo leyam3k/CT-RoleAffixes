@@ -4,7 +4,7 @@
     "requires": [],
     "optional": [],
     "js": "index.js",
-    "css": "style.css",
+    "css": "styles.css",
     "author": "leyam3k",
     "version": "1.0.0",
     "homePage": "https://github.com/leyam3k/CT-RoleAffixes"
