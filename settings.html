@@ -1,0 +1,214 @@
+<div class="noass_settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b data-i18n="NoAss">NoAss settings</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+
+
+        <div class="inline-drawer-content">
+            <div class="noass-settings-group">
+                <label class="flex-container">
+                    <input type="checkbox" id="noass_is_enabled"><small data-i18n="Enable NoAss">Enable NoAss</small>
+                </label>
+
+                <div class="flex-container" title="Enable Insertable Prefill">
+                    <input type="checkbox" id="noass_enable_zero_prefill" checked><small data-i18n="Enable Insertable Prefill">Enable Insertable Prefill</small>
+                </div>
+
+                <div class="flex-container" title="Place squashed Chat History in a separate message">
+                    <input type="checkbox" id="noass_separate_chat_history" checked><small>Separate Chat History</small>
+                </div>
+            </div>
+
+            <div class="noass-settings-group">
+                <div class="NoAss-preset">
+                    <strong for="NoAss-preset-actions" data-i18n="NoAss Preset">
+                        NoAss Preset:
+                    </strong>
+                    <div class="NoAss-preset-actions">
+                        <select id="NoAss-preset-list" class="text_pole"></select>
+                        <div class="NoAss-preset-add menu_button menu_button_icon fa-solid fa-plus" id="NoAss-preset-new" title="Create new NoAss set"></div>
+                        <div class="NoAss-preset-add menu_button menu_button_icon fa-solid fa-file-import" id="NoAss-preset-import" title="Import NoAss set"></div>
+                        <input type="file" id="NoAss-preset-importFile" accept=".json" hidden>
+                        <div class="NoAss-preset-add menu_button menu_button_icon fa-solid fa-file-export" id="NoAss-preset-export" title="Export NoAss set"></div>
+                        <div class="NoAss-preset-del menu_button menu_button_icon fa-solid fa-trash redWarningBG" id="NoAss-preset-delete" title="Delete NoAss set"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="noass-settings-group">
+                <div class="flex-container flexFlowColumn" title="Stop string.">
+                    <strong for="noass_stop_string" data-i18n="Stop string" class="noass-center-text">
+                        Stop String
+                    </strong>
+                    <div class="flex-container" title="Enable stop string">
+                        <input type="checkbox" id="noass_enable_stop_string" checked><small data-i18n="Enable Stop String">Enable Stop String</small>
+                    </div>
+                    <div class="NoAss-preset">
+                        <strong>Variant:</strong>
+                        <select id="noass_stop_string_selection" class="text_pole">
+                                <option value="0">Stop String Variant 1</option>
+                                <option value="1">Stop String Variant 2</option>
+                                <option value="2">Stop String Variant 3</option>
+                            </select>
+                    </div>
+                    <div class="flex-container flexGap10">
+                        <div class="flex-container" title="Client-only stop string">
+                            <input type="checkbox" id="noass_client_stop_string" checked><small data-i18n="Client-Only Stop String">Client-Only</small>
+                        </div>
+                        <div class="flex-container marginLeft5" title="Regex mode for client-only stop strings">
+                            <input type="checkbox" id="noass_client_stop_regex"><small data-i18n="Regex Mode">Regex</small>
+                        </div>
+                    </div>
+                    <div class="flex-container">
+                        <input id="noass_stop_string" name="stop_string" class="text_pole flex1 wide100p" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div class="noass-settings-group">
+                <strong class="noass-center-text">Response Formatting:</strong>
+                <div class="flex-container flexFlowColumn" title="Maximum number of characters in a response.">
+                    <label for="noass_max_symbols">
+                        Response Max Symbols
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_max_symbols" class="text_pole flex1 wide100p" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div class="noass-settings-group">
+                <strong class="noass-center-text">Messages Formatting:</strong>
+
+                <div class="flex-container flexFlowColumn">
+                    <label for="noass_squash_role" data-i18n="Squash Role">
+                        Squash Role
+                    </label>
+                    <select id="noass_squash_role" class="text_pole noass-margin-bottom-10">
+                        <option value="system">System</option>
+                        <option value="user">User</option>
+                        <option value="assistant">Assistant</option>
+                    </select>
+                </div>
+
+                <div class="flex-container flexFlowColumn">
+                    <label for="noass_messages_separator" data-i18n="Messages Separator">
+                        Messages Separator
+                    </label>
+                    <select id="noass_messages_separator" class="text_pole noass-margin-bottom-10">
+                        <option value="double_newline">Double newline</option>
+                        <option value="newline">Newline</option>
+                        <option value="space">Space</option>
+                    </select>
+                </div>
+
+                <div class="flex-container flexFlowColumn" title="What will be put before the user's message.">
+                    <label for="noass_user_prefix" data-i18n="User Prefix">
+                        User Prefix
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_user_prefix" name="user_prefix" class="text_pole flex1 wide100p noass-margin-bottom-10" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="flex-container flexFlowColumn" title="What will be put after the user's message.">
+                    <label for="noass_user_suffix" data-i18n="User Suffix">
+                        User Suffix
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_user_suffix" name="user_suffix" class="text_pole flex1 wide100p noass-margin-bottom-10" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="flex-container flexFlowColumn" title="What will be put before the char's message.">
+                    <label for="noass_char_prefix" data-i18n="Char Prefix">
+                        Char Prefix
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_char_prefix" name="char_prefix" class="text_pole flex1 wide100p noass-margin-bottom-10" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="flex-container flexFlowColumn" title="What will be put after the char's message.">
+                    <label for="noass_char_suffix" data-i18n="Char Suffix">
+                        Char Suffix
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_char_suffix" name="char_suffix" class="text_pole flex1 wide100p noass-margin-bottom-10" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="flex-container flexFlowColumn" title="Prefill to avoid an trailing whitespace error. Default is ZWJ.">
+                    <label for="noass_zero_prefill" data-i18n="Zero Prefill">
+                        Insertable Prefill
+                    </label>
+                    <div class="flex-container">
+                        <input id="noass_zero_prefill" name="zero_prefill" class="text_pole flex1 wide100p" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div class="noass-settings-group">
+                <strong class="noass-center-text noass-margin-bottom-5">Post-Processing:</strong>
+
+                <div class="NoAss-preset noass-margin-bottom-10">
+                    <strong>Variant:</strong>
+                    <select id="noass_squashed_separator_selection" class="text_pole">
+                        <option value="0">Post-Processing Variant 1</option>
+                        <option value="1">Post-Processing Variant 2</option>
+                        <option value="2">Post-Processing Variant 3</option>
+                    </select>
+                </div>
+
+                <hr>
+
+                <div class="flex-container flexFlowColumn" title="Separator for already squashed messages. If found, it will split a message into multiple messages.">
+                    <label for="noass_squashed_separator_string" data-i18n="Squashed History Separator" class="noass-margin-bottom-5">
+                        <strong>Squashed History Separator</strong>
+                    </label>
+                    <div class="flex-container" title="Enable separator for squashed history.">
+                        <input type="checkbox" id="noass_enable_squashed_separator"><small data-i18n="Enable Squashed History Separator">Enable Squashed History Separator</small>
+                    </div>
+                    <div class="flex-container flexGap10">
+                        <div class="flex-container" title="Keep separator string in the message below after splitting.">
+                            <input type="checkbox" id="noass_squashed_separator_keep" checked><small data-i18n="Keep Separator">Keep Separator</small>
+                        </div>
+                        <div class="flex-container marginLeft5" title="Regex mode for squashed history separator.">
+                            <input type="checkbox" id="noass_squashed_separator_regex"><small data-i18n="Regex Mode">Regex Mode</small>
+                        </div>
+                    </div>
+                    <div class="flex-container">
+                        <input id="noass_squashed_separator_string" class="text_pole flex1 wide100p" maxlength="500" size="35" type="text" autocomplete="off">
+                    </div>
+
+                    <hr>
+                    
+                    <strong class="noass-margin-bottom-5">Inter-Split Prompt</strong>
+                    <div class="flex-container" title="Enable to insert a prompt between split messages.">
+                        <input type="checkbox" id="noass_squashed_separator_prompt_enable"><small data-i18n="Enable Inter-Split Prompt">Enable Prompt</small>
+                    </div>
+                    <div class="flex-container flexFlowColumn">
+                        <label for="noass_squashed_separator_prompt_role" data-i18n="Inter-Split Prompt Role">
+                            Prompt Role
+                        </label>
+                        <select id="noass_squashed_separator_prompt_role" class="text_pole">
+                            <option value="system">System</option>
+                            <option value="user">User</option>
+                            <option value="assistant">Assistant</option>
+                        </select>
+                    </div>
+                    <div class="flex-container flexFlowColumn">
+                        <label for="noass_squashed_separator_prompt_string" data-i18n="Inter-Split Prompt">
+                            Prompt Content
+                        </label>
+                        <div class="flex-container">
+                            <input id="noass_squashed_separator_prompt_string" class="text_pole flex1 wide100p" maxlength="500" size="35" type="text" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
